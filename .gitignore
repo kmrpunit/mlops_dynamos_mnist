@@ -169,3 +169,12 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+
+# dataset
+dataset/mnist_test.csv
+dataset/mnist_train.csv
+dataset/t10k-images-idx3-ubyte
+dataset/t10k-labels-idx1-ubyte
+dataset/train-images-idx3-ubyte
+dataset/train-labels-idx1-ubyte
