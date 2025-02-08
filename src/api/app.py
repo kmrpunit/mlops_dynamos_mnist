@@ -1,15 +1,20 @@
 import sys
 import os
+
 os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
-sys.path.append(os.path.join(os.path.dirname(__file__), '../../experiments'))
+project_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.join(project_dir, '../../'))
 
 import uvicorn
 import mlflow
 from fastapi import FastAPI, HTTPException
+from src.models.modelmanager import ModelManager
+
 
 app = FastAPI()
+mlflow_run_id = None
 
-
+manager = ModelManager()
 
 @app.get("/")
 async def root():
@@ -20,9 +25,9 @@ async def root():
 
 
 if __name__ == "__main__":
-    # Enable autologging    
+    # Enable autologging
     mlflow.autolog()
-    mlflow.set_tracking_uri("http://127.0.0.1:5000")
+    # mlflow.set_tracking_uri("http://127.0.0.1:5000")
     # Set the experiment name 
     mlflow.set_experiment("mlops-dynamos-experiment")
     # Start a new MLflow run

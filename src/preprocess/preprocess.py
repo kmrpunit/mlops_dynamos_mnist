@@ -2,7 +2,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from src.preprocess.generate_mnist_csv import generate_mnist_csv
+from src.preprocess.utils import generate_mnist_csv
 
 # Function to plot images
 def plot_images(images, labels, num_images=10):

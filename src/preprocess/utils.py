@@ -3,7 +3,7 @@ import urllib.request
 import gzip
 import shutil
 
-dataset_dir = "../dataset"
+dataset_dir = "./dataset"
 
 def convert(imgf, labelf, outf, n):
     with open(imgf, "rb") as f, open(labelf, "rb") as l, open(outf, "w") as o:

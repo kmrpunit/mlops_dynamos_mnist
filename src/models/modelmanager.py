@@ -6,30 +6,27 @@ from src.preprocess.preprocess import ReadAndLoadMnistData
 
 from sklearn.metrics import accuracy_score, precision_score, recall_score
 
-
-dataset_dir = "../dataset"
+dataset_dir = "./dataset"
 train_file = f"{dataset_dir}/mnist_train.csv"
 test_file = f"{dataset_dir}/mnist_test.csv"
-
 input_shape = 28 * 28
 
 class ModelManager:
 
-    def __init__(self, input_shape):
+    def __init__(self):
         print("ModelManager: __init__")
-        self.input_shape = input_shape
         self.trainers = []
         self.models = []
         
         with ReadAndLoadMnistData(train_file, test_file) as minst_data:
             self.X_train, self.y_train, self.X_test, self.y_test = minst_data.load_data()            
             # Normalize the images
-            X_train = X_train.values / 255.0
-            X_test = X_test.values / 255.0
+            self.X_train = self.X_train.values / 255.0
+            self.X_test = self.X_test.values / 255.0
 
             # Flatten the images
-            X_train = X_train.reshape(-1, 28*28)
-            X_test = X_test.reshape(-1, 28*28)       
+            self.X_train = self.X_train.reshape(-1, 28*28)
+            self.X_test = self.X_test.reshape(-1, 28*28)       
 
             # initialize models
             self.trainers.append(FCNNTrainAndPredict(input_shape, self.X_train, self.y_train, self.X_test, self.y_test))
