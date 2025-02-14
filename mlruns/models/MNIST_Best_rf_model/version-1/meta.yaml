@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1739460615558
+current_stage: None
+description: ''
+last_updated_timestamp: 1739460615558
+name: MNIST_Best_rf_model
+run_id: 91e1a6a718a147d0a4aa57e1a3ee5db9
+run_link: ''
+source: file:///D:/VNIT/2nd%20SEM/Deployment%20of%20ML%20models/Group_assignment/mlruns/930326542276805092/91e1a6a718a147d0a4aa57e1a3ee5db9/artifacts/random_forest_model
+status: READY
+status_message: null
+storage_location: file:///D:/VNIT/2nd%20SEM/Deployment%20of%20ML%20models/Group_assignment/mlruns/930326542276805092/91e1a6a718a147d0a4aa57e1a3ee5db9/artifacts/random_forest_model
+user_id: null
+version: 1

@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/VNIT/2nd%20SEM/Deployment%20of%20ML%20models/Group_assignment/mlruns/930326542276805092/41e7e12e57a9462eb3a2a29f1bcf81e8/artifacts
+end_time: 1739201926418
+entry_point_name: ''
+experiment_id: '930326542276805092'
+lifecycle_stage: active
+run_id: 41e7e12e57a9462eb3a2a29f1bcf81e8
+run_name: popular-duck-692
+run_uuid: 41e7e12e57a9462eb3a2a29f1bcf81e8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739201916407
+status: 3
+tags: []
+user_id: aashi

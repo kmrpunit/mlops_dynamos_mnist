@@ -1,0 +1,16 @@
+artifact_uri: file:///D:/VNIT/2nd%20SEM/Deployment%20of%20ML%20models/Group_assignment/mlruns/930326542276805092/3fe8a28f7d604504bb112175060ee7b5/artifacts
+deleted_time: 1738919954495
+end_time: 1738918872342
+entry_point_name: ''
+experiment_id: '930326542276805092'
+lifecycle_stage: deleted
+run_id: 3fe8a28f7d604504bb112175060ee7b5
+run_name: resilient-shoat-970
+run_uuid: 3fe8a28f7d604504bb112175060ee7b5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1738918871409
+status: 4
+tags: []
+user_id: aashi

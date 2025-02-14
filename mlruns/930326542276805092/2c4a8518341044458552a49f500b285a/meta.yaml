@@ -1,0 +1,16 @@
+artifact_uri: file:///D:/VNIT/2nd%20SEM/Deployment%20of%20ML%20models/Group_assignment/mlruns/930326542276805092/2c4a8518341044458552a49f500b285a/artifacts
+deleted_time: 1739211641639
+end_time: 1739211048322
+entry_point_name: ''
+experiment_id: '930326542276805092'
+lifecycle_stage: deleted
+run_id: 2c4a8518341044458552a49f500b285a
+run_name: crawling-panda-635
+run_uuid: 2c4a8518341044458552a49f500b285a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739211042484
+status: 4
+tags: []
+user_id: aashi

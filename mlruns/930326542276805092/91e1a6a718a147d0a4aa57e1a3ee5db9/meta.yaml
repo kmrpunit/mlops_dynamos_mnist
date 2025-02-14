@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/VNIT/2nd%20SEM/Deployment%20of%20ML%20models/Group_assignment/mlruns/930326542276805092/91e1a6a718a147d0a4aa57e1a3ee5db9/artifacts
+end_time: 1739460301263
+entry_point_name: ''
+experiment_id: '930326542276805092'
+lifecycle_stage: active
+run_id: 91e1a6a718a147d0a4aa57e1a3ee5db9
+run_name: clumsy-fish-479
+run_uuid: 91e1a6a718a147d0a4aa57e1a3ee5db9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739211583868
+status: 3
+tags: []
+user_id: aashi

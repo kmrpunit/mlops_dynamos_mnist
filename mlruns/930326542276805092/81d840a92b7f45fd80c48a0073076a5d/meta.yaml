@@ -1,0 +1,16 @@
+artifact_uri: file:///D:/VNIT/2nd%20SEM/Deployment%20of%20ML%20models/Group_assignment/mlruns/930326542276805092/81d840a92b7f45fd80c48a0073076a5d/artifacts
+deleted_time: 1739211641628
+end_time: 1739210572884
+entry_point_name: ''
+experiment_id: '930326542276805092'
+lifecycle_stage: deleted
+run_id: 81d840a92b7f45fd80c48a0073076a5d
+run_name: crawling-auk-297
+run_uuid: 81d840a92b7f45fd80c48a0073076a5d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739210572219
+status: 4
+tags: []
+user_id: aashi

@@ -1,0 +1,16 @@
+artifact_uri: file:///D:/VNIT/2nd%20SEM/Deployment%20of%20ML%20models/Group_assignment/mlruns/930326542276805092/96bb16ae3f9f4999bf53d12e80dd2f5b/artifacts
+deleted_time: 1739211641628
+end_time: 1739210961093
+entry_point_name: ''
+experiment_id: '930326542276805092'
+lifecycle_stage: deleted
+run_id: 96bb16ae3f9f4999bf53d12e80dd2f5b
+run_name: placid-goose-960
+run_uuid: 96bb16ae3f9f4999bf53d12e80dd2f5b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739210947222
+status: 4
+tags: []
+user_id: aashi

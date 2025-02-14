@@ -1,0 +1,16 @@
+artifact_uri: file:///D:/VNIT/2nd%20SEM/Deployment%20of%20ML%20models/Group_assignment/mlruns/930326542276805092/3ed4b8a82d564960bec26293cfed1643/artifacts
+deleted_time: 1738919954495
+end_time: 1738918418881
+entry_point_name: ''
+experiment_id: '930326542276805092'
+lifecycle_stage: deleted
+run_id: 3ed4b8a82d564960bec26293cfed1643
+run_name: shivering-hen-920
+run_uuid: 3ed4b8a82d564960bec26293cfed1643
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1738918418541
+status: 4
+tags: []
+user_id: aashi

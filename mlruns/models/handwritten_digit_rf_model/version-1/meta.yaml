@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1738919976344
+current_stage: None
+description: ''
+last_updated_timestamp: 1738919976344
+name: handwritten_digit_rf_model
+run_id: 14e416d94e0c423091a5f89825ca0685
+run_link: ''
+source: file:///D:/VNIT/2nd%20SEM/Deployment%20of%20ML%20models/Group_assignment/mlruns/930326542276805092/14e416d94e0c423091a5f89825ca0685/artifacts/random_forest_model
+status: READY
+status_message: null
+storage_location: file:///D:/VNIT/2nd%20SEM/Deployment%20of%20ML%20models/Group_assignment/mlruns/930326542276805092/14e416d94e0c423091a5f89825ca0685/artifacts/random_forest_model
+user_id: null
+version: 1

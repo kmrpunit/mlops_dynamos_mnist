@@ -1,0 +1,16 @@
+artifact_uri: file:///D:/VNIT/2nd%20SEM/Deployment%20of%20ML%20models/Group_assignment/mlruns/930326542276805092/7e5f2d11a65b48c88ae9884c4767bb26/artifacts
+deleted_time: 1739211641629
+end_time: 1739210521537
+entry_point_name: ''
+experiment_id: '930326542276805092'
+lifecycle_stage: deleted
+run_id: 7e5f2d11a65b48c88ae9884c4767bb26
+run_name: suave-cat-603
+run_uuid: 7e5f2d11a65b48c88ae9884c4767bb26
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739210521079
+status: 4
+tags: []
+user_id: aashi
