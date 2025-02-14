@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/VNIT_Mtech/Subjects/8.ML_Ops_Model_Deployment/Code/assignment_2/mlops_dynamos_mnist/mlruns/0/9a5dabf52d1543659f7065e0c29371ca/artifacts
+end_time: 1739557373152
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 9a5dabf52d1543659f7065e0c29371ca
+run_name: abrasive-steed-234
+run_uuid: 9a5dabf52d1543659f7065e0c29371ca
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739556556588
+status: 3
+tags: []
+user_id: Abhinav
