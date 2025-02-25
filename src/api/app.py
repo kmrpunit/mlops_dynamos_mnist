@@ -2,6 +2,7 @@ import sys
 import os
 from typing import List
 import numpy as np
+from typing import Dict, Any
 import uvicorn
 import mlflow
 from fastapi import FastAPI, HTTPException
@@ -40,12 +41,56 @@ class PredictionRequest(BaseModel):
     ensemble_predict: bool
     data: List[List[int]]
 
+class ModelParams(BaseModel):
+    param: Dict[str, Any]
+    n_jobs: int
+    cv: int
+
+class HyperparameterGrid(BaseModel):
+    use_small_dataset: bool
+    grid_search_params: Dict[str, ModelParams]
+
 @app.get("/")
 async def get_root():
     try:
         # Train the models and log them to MLflow
         manager.train(os.environ.get("USE_SMALL_DATASET") == "True")
         return {"message": "Training completed and logged to MLflow"}
+    except Exception as e:
+        print(e)
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/best_model_parameters")
+async def get_best_model_parameters():
+    try:        
+        if manager.best_model is None:
+            raise HTTPException(status_code=400, detail="Model not trained yet")
+        
+        best_params = manager.best_model_params
+        if best_params is None:
+            raise HTTPException(status_code=400, detail="Best model parameters not found")
+        
+        response_model = dict()
+        response_model["best_model"] = manager.best_model.get_best_params()
+        for model in manager.models:
+            response_model[model._name] = model.get_best_params()
+        return response_model
+    except Exception as e:
+        print(e)
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/training")
+async def training(request: HyperparameterGrid):
+    try:
+        print(f"Training request: {request}")
+        # Trigger training process
+        use_small_dataset = os.environ.get("USE_SMALL_DATASET") == "True"
+        if request.use_small_dataset is not None:
+            use_small_dataset = request.use_small_dataset
+        
+        manager.train(use_small_dataset, request.grid_search_params)
+
+        return {"message": "Training completed, best model logged in MLflow."}
     except Exception as e:
         print(e)
         raise HTTPException(status_code=500, detail=str(e))
