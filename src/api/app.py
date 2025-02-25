@@ -1,37 +1,84 @@
 import sys
 import os
-
-os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
-project_dir = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(os.path.join(project_dir, '../../'))
-
+from typing import List
+import numpy as np
 import uvicorn
 import mlflow
 from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+
+# Configure environment
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
+
+if os.environ.get("USE_SMALL_DATASET") == None:
+    os.environ['USE_SMALL_DATASET'] = "True"
+
+project_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.join(project_dir, '../../'))
+
 from src.models.modelmanager import ModelManager
 
+username = os.environ.get("USER") or os.environ.get("USERNAME")
+print(username)
 
+# Set the tracking URI
+mlflow_tracking_uri = f"./experiments/mlruns"
+if not os.path.exists(mlflow_tracking_uri):
+    os.makedirs(mlflow_tracking_uri)
+
+if not os.path.exists('./model'):
+    os.makedirs('./model')
+
+os.environ['MLFLOW_TRACKING_URI'] = mlflow_tracking_uri
+
+# Initialize FastAPI
 app = FastAPI()
-mlflow_run_id = None
-
 manager = ModelManager()
 
+# Define request model
+class PredictionRequest(BaseModel):
+    ensemble_predict: bool
+    data: List[List[int]]
+
 @app.get("/")
-async def root():
-    try:            
-        return { "mlflow-running-id": f"{mlflow_run_id}" }
+async def get_root():
+    try:
+        # Train the models and log them to MLflow
+        manager.train(os.environ.get("USE_SMALL_DATASET") == "True")
+        return {"message": "Training completed and logged to MLflow"}
     except Exception as e:
+        print(e)
         raise HTTPException(status_code=500, detail=str(e))
 
+@app.post("/predict")
+async def predict(request: PredictionRequest):
+    try:
+        ensemble_predict = False
+        if request.ensemble_predict is not None:
+            ensemble_predict = request.ensemble_predict
+        
+        X = np.array(request.data)
+        prediction = manager.predict(X, ensemble_predict)
+        return {"prediction": prediction.tolist()}
+    except Exception as e:
+        print(e)
+        raise HTTPException(status_code=500, detail=str(e))
+
+# def start_mlflow():
+#     with open('mlflow_log.txt', 'w') as f:
+#         subprocess.Popen(["mlflow", "ui", "--host", "0.0.0.0", "--port", "5000"], stdout=f, stderr=f)
 
 if __name__ == "__main__":
-    # Enable autologging
+    print('Calling the __main__ method....')
+    # Enable autologging    
     mlflow.autolog()
-    # mlflow.set_tracking_uri("http://127.0.0.1:5000")
-    # Set the experiment name 
-    mlflow.set_experiment("mlops-dynamos-experiment")
-    # Start a new MLflow run
-    with mlflow.start_run():
-        mlflow_run_id = mlflow.active_run().info.run_id
-        # Run the FastAPI application
-        uvicorn.run(app, host="0.0.0.0", port=8001)
+    mlflow.keras.autolog()
+    mlflow.sklearn.autolog()
+
+    # start_mlflow()
+    # mlflow.set_tracking_uri(f"file:{mlrun_tracking_uri}")
+
+    mlflow.set_experiment(f"mlops-dynamos-experiment-{username}")
+    with mlflow.start_run(nested=True):
+        print('Started mlflow run command')
+        uvicorn.run("src.api.app:app", host="0.0.0.0", port=8001, reload=True)
