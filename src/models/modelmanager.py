@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import mlflow
 from sklearn.model_selection import train_test_split
+from src.models.ensemblemodel import EnsembleModel
 from src.models.fcnn import NeuralNetworkModel, build_cnn
 from src.models.rf import RandomForestModel
 from src.models.svm import SVMModel
@@ -171,6 +172,33 @@ class ModelManager:
         
         self.models = models_local
         self.logBestModelToMLflow()
+        self.ensemble_train()
+
+    def ensemble_train(self):
+        print("ModelManager: ensemble_train")
+        if self.best_model is None:
+            raise Exception("No best model found. Train the models first.")
+        
+        if len(self.models) < 2:
+            raise Exception("At least 2 models are required for ensemble training.")
+
+        with mlflow.start_run(run_name="ensemble_training", nested=True):
+            mlflow.set_tag("model", "ensemble_model")
+            # Create ensemble model using the trained models
+            self.ensemble_model = EnsembleModel(models=self.models)
+            voting_classifier = self.ensemble_model.createEnsembleModel(voting='soft')  # Use 'hard' for majority voting
+            print(f"Ensemle model using Voting classifier created successfully. Here are the named_estimators {voting_classifier.named_estimators}")
+            # Train the ensemble model and evaluate
+            evaluation_metrics = self.ensemble_model.train_and_evaluate(self.X_train, self.y_train, self.X_test, self.y_test, param_grid=None, n_jobs=-1, cv=3)
+            self.ensemble_model.train(self.X_train, self.y_train)
+            print("Ensemble Model Evaluation Metrics:", evaluation_metrics)
+            # Predict test the ensemble model
+            predictions = self.ensemble_model.predict(self.X_test)
+            print("Ensemble Model Predictions:", predictions)
+            self.save_ensemble_model()
+            # Log the ensemble model to MLflow
+            self.ensemble_model.log_self_to_mlflow(evaluation_metrics, self.ensemble_model_filename)
+            print("Ensemble Model logged in MLflow")
 
     def save_best_model(self):
         print(f"BaseModel: save_model - Saving the best trained model to a pickle file")        
@@ -257,7 +285,19 @@ class ModelManager:
                 return self.best_model.predict(X)
         else:
             print("ModelManager: predict->Ensemble prediction")
-
+            if self.ensemble_model is None:
+                if os.path.exists(self.ensemble_model_filename):                    
+                    print("ModelManager: predict->Ensemble model is trained. Predicting using ensemble model")
+                    X = X.reshape(-1, 28 * 28)  # Reshape to (-1, 784)
+                    ensemble_model = EnsembleModel(self.models)
+                    return ensemble_model.predict(X, self.ensemble_model_filename)
+                else:
+                    print("ModelManager: predict->Ensemble model is not trained yet")
+                    raise Exception("Ensemble model not trained yet")
+            else:
+                print("ModelManager: predict->Ensemble model is trained. Predicting using ensemble model")
+                X = X.reshape(-1, 28 * 28)  # Reshape to (-1, 784)
+                return self.ensemble_model.predict(X, self.ensemble_model_filename)
             
     def is_cnn_model(self, keras_model):
         if keras_model.build_fn == build_cnn:
