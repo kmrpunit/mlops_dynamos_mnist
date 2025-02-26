@@ -1,0 +1,15 @@
+artifact_uri: /app/experiments/mlruns/144070365330767331/3078d0fe99ad4806965c57f3d243d729/artifacts
+end_time: 1740535794260
+entry_point_name: ''
+experiment_id: '144070365330767331'
+lifecycle_stage: active
+run_id: 3078d0fe99ad4806965c57f3d243d729
+run_name: xgboost_training
+run_uuid: 3078d0fe99ad4806965c57f3d243d729
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740535385135
+status: 3
+tags: []
+user_id: root

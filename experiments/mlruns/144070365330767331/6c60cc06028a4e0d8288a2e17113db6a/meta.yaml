@@ -1,0 +1,15 @@
+artifact_uri: /app/experiments/mlruns/144070365330767331/6c60cc06028a4e0d8288a2e17113db6a/artifacts
+end_time: 1740538110968
+entry_point_name: ''
+experiment_id: '144070365330767331'
+lifecycle_stage: active
+run_id: 6c60cc06028a4e0d8288a2e17113db6a
+run_name: ensemble_training
+run_uuid: 6c60cc06028a4e0d8288a2e17113db6a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740537615733
+status: 3
+tags: []
+user_id: root

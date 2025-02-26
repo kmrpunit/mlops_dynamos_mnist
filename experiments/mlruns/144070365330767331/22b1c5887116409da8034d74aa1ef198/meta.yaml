@@ -1,0 +1,15 @@
+artifact_uri: /app/experiments/mlruns/144070365330767331/22b1c5887116409da8034d74aa1ef198/artifacts
+end_time: 1740537615660
+entry_point_name: ''
+experiment_id: '144070365330767331'
+lifecycle_stage: active
+run_id: 22b1c5887116409da8034d74aa1ef198
+run_name: cnn_training
+run_uuid: 22b1c5887116409da8034d74aa1ef198
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740536866298
+status: 3
+tags: []
+user_id: root

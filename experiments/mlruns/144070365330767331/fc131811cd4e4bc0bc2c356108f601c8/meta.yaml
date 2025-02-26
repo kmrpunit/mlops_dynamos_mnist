@@ -1,0 +1,15 @@
+artifact_uri: /app/experiments/mlruns/144070365330767331/fc131811cd4e4bc0bc2c356108f601c8/artifacts
+end_time: 1740535884803
+entry_point_name: ''
+experiment_id: '144070365330767331'
+lifecycle_stage: active
+run_id: fc131811cd4e4bc0bc2c356108f601c8
+run_name: rf_training
+run_uuid: fc131811cd4e4bc0bc2c356108f601c8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740535794264
+status: 3
+tags: []
+user_id: root

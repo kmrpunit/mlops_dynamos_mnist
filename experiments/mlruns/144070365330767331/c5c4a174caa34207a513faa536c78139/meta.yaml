@@ -1,0 +1,15 @@
+artifact_uri: /app/experiments/mlruns/144070365330767331/c5c4a174caa34207a513faa536c78139/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '144070365330767331'
+lifecycle_stage: active
+run_id: c5c4a174caa34207a513faa536c78139
+run_name: flawless-hawk-96
+run_uuid: c5c4a174caa34207a513faa536c78139
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740534584905
+status: 1
+tags: []
+user_id: root

@@ -1,0 +1,15 @@
+artifact_uri: /app/experiments/mlruns/144070365330767331/0fe53bfa87cf4e3bb19208e8588d8527/artifacts
+end_time: 1740535385131
+entry_point_name: ''
+experiment_id: '144070365330767331'
+lifecycle_stage: active
+run_id: 0fe53bfa87cf4e3bb19208e8588d8527
+run_name: fcnn_training
+run_uuid: 0fe53bfa87cf4e3bb19208e8588d8527
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740535263177
+status: 3
+tags: []
+user_id: root
