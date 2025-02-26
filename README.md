@@ -35,7 +35,7 @@ Here is the README.md content for your project:
 docker pull kpunit03/mlops-dynamos-mnist
 ```
 
-### 2. Using Docker
+### 2. Using Docker Desktop
 
 #### Build the Docker Image
 
