@@ -21,16 +21,21 @@ Here is the README.md content for your project:
   ├── notebook/ 
   ├── src/ 
   ├── tests/ 
-  ├── .dockerignore 
-  ├── .gitignore 
-  ├── Dockerfile 
-  ├── README.md 
-  ├── requirements.txt 
+  ├── .dockerignore /
+  ├── .gitignore /
+  ├── Dockerfile /
+  ├── README.md /
+  ├── requirements.txt /
   └── supervisord.conf
 
 ## How to Run this Project
 
-### 1. Using Docker
+### 1. Using Docker image:
+```sh
+docker pull kpunit03/mlops-dynamos-mnist
+```
+
+### 2. Using Docker
 
 #### Build the Docker Image
 
@@ -51,7 +56,7 @@ docker exec -it mlops-dynamos-mnist sh
 docker exec -it mlops-dynamos-mnist /bin/bash
 ```
 
-### 2. Running Manually
+### 3. Running Manually
 
 #### Clone the Repository
 
