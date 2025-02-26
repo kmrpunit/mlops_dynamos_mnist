@@ -1,0 +1,10 @@
+# Ignore folders
+mlruns
+notebook
+__pycache__
+experiments
+tests
+model
+.git
+.gitignore
+.dockerignore
